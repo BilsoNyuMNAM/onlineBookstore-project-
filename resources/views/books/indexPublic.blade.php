@@ -38,7 +38,11 @@
 @foreach($books as $book)
 <tr>
 <td>{{$book['title']}}</td>
-<td>@foreach($book->category as $category) {{$category}} @endforeach</td>
+<td>
+    @foreach((array) $book->category as $category)
+        {{ $category }}
+    @endforeach
+</td>
 <td>{{$book['price']}}</td>
 
 <td><a href="{{action('BookController@show', $book['id'])}}" class="btn
